@@ -1,12 +1,12 @@
 Business
 
 
-functional
-  Metric: activity, contributions, project health
+Functional
+  - Metric: activity, contributions, project health
   
-system
-  Server with 
+System
+  - Server with enough processing ability to handle large amounts of information 
 
-user
-  Visualization of metrics
+User
+  - Visualization of metrics
 
