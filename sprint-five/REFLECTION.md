@@ -1,5 +1,6 @@
 Things that worked:
 - Most of the tutorial
+  - Installing go
   - Installing pipenv
   - Setting up virtual environments
   - Generating google credentials
