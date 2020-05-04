@@ -1,8 +1,8 @@
 Things that worked:
 - Most of the tutorial
--- Installing pipenv
--- Setting up virtual environments
--- Generating google credentials
+- - Installing pipenv
+- - Setting up virtual environments
+- - Generating google credentials
 
 Things that did not work:
 - `python app.py` (had to use `python3 app.py`. Might be able to alias it in the future)
