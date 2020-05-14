@@ -8,5 +8,15 @@ The commit hash is: [ee4a787](https://github.com/kb73/kpbyyf/commit/ee4a7870f706
 ## 14
 My goal for the final version is to have SSO functionality added so that notes are persistent across multiple platforms, but I'm not entirely sure how that's going to work yet, since I have no idea how to connect Bash to SSO or a Backend, but I will do my best
 
+### Process
+ - Wrote starting code
+ - Added delete note functionality
+ - Googled how to implement openID Connect as a command-line interface
+ - Found the first link listed below
+ - Article said to install a software called [WS02 Identity Server](https://docs.wso2.com/display/IS570/Installing+on+Linux+or+OS+X) (seemed a little sketch, they asked for my email)
+ 
+ 
+
 ### Resource Links (or at least the ones I tried to use):
  - https://medium.com/@balaajanthan/openid-flow-from-a-cli-ac45de876ead
+ - https://is.docs.wso2.com/en/5.10.0/get-started/quick-start-guide/
