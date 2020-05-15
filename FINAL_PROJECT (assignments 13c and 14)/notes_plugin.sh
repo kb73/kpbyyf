@@ -8,6 +8,31 @@
 # var for path to file that stores notes
 notefile=~/.notes.txt
 
+# Ensures notes.txt exists
+touch $notefile
+
+# Create variable which refreshes the plugin
+refresh="open bitbar://refreshPlugin?name=notes.1d.sh"
+
+# Function to delete the selected note
+if [ "$1" = "delete" ]; then
+    # equivalent to: sed -i '' <linenumber>d ~/bitbar_plugins/support_files/notes.txt
+    sed -i '' "$2""$3" $notefile
+    $refresh
+fi
+
+# Function to copy note to clipboard
+## Note: for some unknown reason, it adds a new line character (\n) to the end of what is copied
+if [ "$1" = "copy" ]; then
+    sed -n "$2""$3" $notefile | pbcopy
+fi
+
+# Function that overrites the notes.txt file with nothing, clearing all notes
+if [ "$1" = "clear" ]; then
+    true > "$notefile"
+    $refresh
+fi
+
 # Function to create new note
 if [ "$1" = "new" ]; then
     # Opens a system dialog box and saves input to notes file
@@ -18,10 +43,11 @@ if [ "$1" = "new" ]; then
 	$refresh
 fi
 
-# TODO add functionality for delete option (line 29)
-
 echo "Notes"
 echo "---" #formatting specific to bitbar
+
+# variable to track which line is being read
+lineNum=1;
 
 # Read through every line of the file
 while read -r line; do
@@ -32,3 +58,16 @@ done < $notefile
 
 echo "---"
 echo "New Note | bash=$0 param1=new terminal=false"
+
+# Function which only displays the option to clear notes if at least one note exists
+if [ -s $notefile ]; then
+echo "Clear Notes | color=red"
+echo "--I'm sure | bash=$0 param1=clear terminal=false"
+fi
+
+echo ---
+# Added functionality to edit the plugin directly from the drop down menu
+echo "Edit plugin | bash=$0 param1=edit terminal=false "
+if [ "$1" = "edit" ]; then
+    open "${0}"
+fi
