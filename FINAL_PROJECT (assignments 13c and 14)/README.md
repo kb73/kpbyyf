@@ -15,4 +15,4 @@ Notes is a plugin for the application [Bitbar](https://getbitbar.com/) to keep t
  - The `support_files` folder hosts the login script as well as the credentials after the plugin has been set up
  - After 1 single attempt, you will not need to login again
  - To bypass the login (for whomever wants to see the functionality without needing to create an account),  `cd` into your bitbar plugins folder and use the command `echo "pass">support_files/output`. Obviously this wouldn't be included in an actual release, but just to make it easier to show the functionality
- - My credentials for test purposes: ClientID:`0oac5oxzzozyDK3D44x6` ClientSecret:`-yQ9NHP9gI9aHGlpbVKTuA2NKvVYNzTqOMDB3ZmW`
+ - My credentials for test purposes: ClientID:`0oac5oxzzozyDK3D44x6` ClientSecret:`-yQ9NHP9gI9aHGlpbVKTuA2NKvVYNzTqOMDB3ZmW` Note: They hyphen is part of the client secret
