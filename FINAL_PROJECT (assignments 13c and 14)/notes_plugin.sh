@@ -4,6 +4,23 @@
 # it really can only be fully appreciated when used as a bitbar plugin in the bitbar folder
 # Bitbar can be downloaded at https://github.com/matryer/bitbar/releases/download/v1.9.2/BitBar-v1.9.2.zip
 
+pass=$(tail -n 1 ./support_files/output 2> /dev/null)
+# if [ "$(cat credentials 2> /dev/null)" = "" ]; then
+	while [ ! "$pass" =  "pass" ]; do
+		touch ./support_files/credentials
+		touch ./support_files/output
+		id=$(osascript -e 'Tell application "System Events" to display dialog "Enter Client ID:" default answer "" ' -e 'text returned of result')
+		if [ "$id" != "" ]; then
+			echo "$id">./support_files/credentials
+		fi
+		secret=$(osascript -e 'Tell application "System Events" to display dialog "Enter Client Secret:" default answer "" ' -e 'text returned of result')
+		if [ "$secret" != "" ]; then
+			echo "$secret">>./support_files/credentials
+		fi
+		php ./support_files/login.php
+		pass=$(tail -n 1 ./support_files/output)
+	done
+# fi
 
 # var for path to file that stores notes
 notefile=~/.notes.txt
@@ -43,7 +60,7 @@ if [ "$1" = "new" ]; then
 	$refresh
 fi
 
-echo "Notes"
+echo "FinalNotes"
 echo "---" #formatting specific to bitbar
 
 # variable to track which line is being read
