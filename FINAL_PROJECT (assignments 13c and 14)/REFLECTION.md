@@ -14,9 +14,13 @@ My goal for the final version is to have SSO functionality added so that notes a
  - Googled how to implement openID Connect as a command-line interface
  - Found the first link listed below
  - Article said to install a software called [WS02 Identity Server](https://docs.wso2.com/display/IS570/Installing+on+Linux+or+OS+X) (seemed a little sketch, they asked for my email)
+ - After about an hour of trying to get the software to work I kept running into an issue where the program was able to access java stuffs. Tried deleting and reinstalling jdk that it said it was having issues with and re-exporting the JAVA_HOME folder to the path. Back to square one on trying to add openID Connect to command line interface
+ - It appears Okta might have a [solution](https://developer.okta.com/blog/2018/07/16/oauth-2-command-line)...fortunately I have an okta account from my first go (pun intended) at trying to get SSO to work before Dr. Goggins released the tutorial
+ - Created a new Application for oauth2 in okta
  
  
 
 ### Resource Links (or at least the ones I tried to use):
  - https://medium.com/@balaajanthan/openid-flow-from-a-cli-ac45de876ead
  - https://is.docs.wso2.com/en/5.10.0/get-started/quick-start-guide/
+ - https://developer.okta.com/blog/2018/07/16/oauth-2-command-line
