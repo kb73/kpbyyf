@@ -5,9 +5,11 @@
 # Bitbar can be downloaded at https://github.com/matryer/bitbar/releases/download/v1.9.2/BitBar-v1.9.2.zip
 
 pass=$(tail -n 1 /Users/kevinbowers/bitbar_plugins/support_files/output 2> /dev/null)
+# Check to see if user has had a previous successful login
 if [ ! "$pass" =  "pass" ]; then
 	
 	touch /Users/kevinbowers/bitbar_plugins/support_files/output
+	# Check to see if credentials file exists, if it does, tell user to update
 	if [ -a /Users/kevinbowers/bitbar_plugins/support_files/credentials ]; then
 		php /Users/kevinbowers/bitbar_plugins/support_files/login.php
 		pass=$(tail -n 1 /Users/kevinbowers/bitbar_plugins/support_files/output)
@@ -15,6 +17,7 @@ if [ ! "$pass" =  "pass" ]; then
 			echo "Update credentials file and refresh"
 		fi
 	else
+		# Prompt user to enter their Client ID and Secret
 		touch /Users/kevinbowers/bitbar_plugins/support_files/credentials
 		id=$(osascript -e 'Tell application "System Events" to display dialog "Enter Client ID:" default answer "" ' -e 'text returned of result')
 		if [ "$id" != "" ]; then
@@ -28,7 +31,8 @@ if [ ! "$pass" =  "pass" ]; then
 	fi
 	pass=$(tail -n 1 /Users/kevinbowers/bitbar_plugins/support_files/output)
 else
-
+	#Actual functionality of the program behind SSO is here
+	
 	# var for path to file that stores notes
 	notefile=~/.notes.txt
 
@@ -40,7 +44,7 @@ else
 
 	# Function to delete the selected note
 	if [ "$1" = "delete" ]; then
-		# equivalent to: sed -i '' <linenumber>d ~/bitbar_plugins/support_files/notes.txt
+		# equivalent to: sed -i '' <linenumber>d ~/.notes.txt ($2 and $3 passed by delete function)
 		sed -i '' "$2""$3" $notefile
 		$refresh
 	fi
