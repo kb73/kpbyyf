@@ -17,6 +17,8 @@ My goal for the final version is to have SSO functionality added so that notes a
  6. After about an hour of trying to get the software to work I kept running into an issue where the program was able to access java stuffs. Tried deleting and reinstalling jdk that it said it was having issues with and re-exporting the JAVA_HOME folder to the path. Back to square one on trying to add openID Connect to command line interface
  7. It appears Okta might have a [solution](https://developer.okta.com/blog/2018/07/16/oauth-2-command-line)...fortunately I have an okta account from my first go (pun intended) at trying to get SSO to work before Dr. Goggins released the tutorial
  8. Created a new Application for oauth2 in okta
+ 9. So after a couple hours of tinkering with the Okta tutorial I was able to get it to respond with a successful login
+ 10. After another few hours I was able to integrate the login into my plugin by checking to see if the user had previously successfully logged in, and if not, prompt them on the initial install and after that simply put a message in the menu bar telling the user to update the credentials file (located in the support_files folder)
  
  
 
@@ -24,3 +26,4 @@ My goal for the final version is to have SSO functionality added so that notes a
  - https://medium.com/@balaajanthan/openid-flow-from-a-cli-ac45de876ead
  - https://is.docs.wso2.com/en/5.10.0/get-started/quick-start-guide/
  - https://developer.okta.com/blog/2018/07/16/oauth-2-command-line
+ - a handful of W3schools pages for bash and php syntax
