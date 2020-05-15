@@ -5,9 +5,13 @@ Notes is a plugin for the application [Bitbar](https://getbitbar.com/) to keep t
 ## Use
 
 - First make sure you have [Bitbar](https://getbitbar.com/) installed
-- Download the `.sh` file from this repository and add it to your Bitbar plugins folder
+- Download the `notes_final.1m.sh` file and the `support_files/` folder from this repository and add them to your Bitbar plugins folder
+- In both the `.sh` file and the `support_files/login.php` file, change the paths included from `/Users/kevin/bitbar_plugins/` to the absolute path to your bitbar plugins folder
 - Refresh Bitbar and it will show up in the menu bar
+- Enter your Okta ID and Secret in the prompts
 
 ## Additional Info
 
- - I am currently working on implementing SSO into the plugin to allow persistance of notes across multiple devices
+ - The `support_files` folder hosts the login script as well as the credentials after the plugin has been set up
+ - After 1 single attempt, you will not need to login again
+ - To bypass the login (for whomever wants to see the functionality without needing to create an account),  `cd` into your bitbar plugins folder and use the command `echo "pass">support_files/output`. Obviously this wouldn't be included in an actual release, but just to make it easier to show the functionality
